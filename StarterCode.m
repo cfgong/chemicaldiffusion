@@ -1,3 +1,4 @@
+% replace with your own current path
 currPath = "C:\Users\cfg9740\Documents\Northwestern\EA3\Demo2\images\";
 X10 = imread(currPath + 'img0.png');
 XX10 = double(X10);
