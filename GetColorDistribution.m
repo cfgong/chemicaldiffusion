@@ -27,7 +27,10 @@ for i = 1 : imgCount
 end
 
 % plotting
-plot(variances)
-title('Row intensity variances')
-xlabel('frame')
-ylabel('variance')
+fig = plot(variances);
+title('Row intensity variances');
+xlabel('frame');
+ylabel('variance');
+
+% save plot as a png
+saveas(fig, currPath + 'variancesplot.png')
