@@ -1,4 +1,5 @@
-X10 = imread('img0.png');
+currPath = "C:\Users\cfg9740\Documents\Northwestern\EA3\Demo2\images\";
+X10 = imread(currPath + 'img0.png');
 XX10 = double(X10);
 XX10 = XX10/max(XX10(:));
 
