@@ -27,21 +27,36 @@ for i = 1 : imgCount
     stdevs(i) = stdev;
     variances(i) = stdev.^2;
 end
-
+% times
+times = [49.0897, 98.1460, 147.2023, 196.2587, 245.3150, 294.3714, 343.4277, 392.4840, 441.5404, 490.5967];
+% least squares line fitting
+p = polyfit(times, variances, 1); 
 % plotting
-fig = plot(variances);
+fig = plot(times, variances, "o");
 title('Row intensity variances');
-xlabel('frame');
+xlabel('time (s)');
 ylabel('variance');
 
+hold on
+x1 = linspace(0,500);
+y1 = polyval(p,x1);
+plot(x1, y1)
 % save plot as a png
 saveas(fig, currPath + 'variancesplot.png')
+hold off
 
-% plotting
-fig = plot(stdevs);
-title('Row intensity stdevs');
-xlabel('frame');
-ylabel('stdev');
+% p2 = polyfit(times, stdevs, 1); 
+% 
+% % plotting
+% fig = plot(times, stdevs, "o");
+% title('Row intensity stdevs');
+% xlabel('time (s)');
+% ylabel('stdev');
+% 
+% hold on
+% x2 = linspace(0,500);
+% y2 = polyval(p2,x2);
+% plot(x2, y2)
 
 % save plot as a png
 saveas(fig, currPath + 'stdevsplot.png')
